@@ -198,9 +198,10 @@ rm -f .repo/local_manifest.xml
 
 if [[ "$SYNC_PROTO" == "ssh" ]]
 then
-  repo init -u ssh://git@github.com/androidarmv6/android.git -b $CORE_BRANCH $MANIFEST
+  #repo init -u ssh://git@github.com/androidarmv6/android.git -b $CORE_BRANCH $MANIFEST
+  repo init -u ssh://git@github.com/CyanogenMod/android.git -b $CORE_BRANCH $MANIFEST
 else
-  repo init -u $SYNC_PROTO://github.com/androidarmv6/android.git -b $CORE_BRANCH $MANIFEST
+  repo init -u $SYNC_PROTO://github.com/CyanogenMod/android.git -b $CORE_BRANCH $MANIFEST
 fi
 check_result "repo init failed."
 
@@ -229,6 +230,8 @@ fi
 
 mkdir -p .repo/local_manifests
 rm -f .repo/local_manifest.xml
+
+curl https://github.com/KFireHDX/android_device_amazon_hdx-common/raw/$REPO_BRANCH/hdx-common.mk > .repo/local_manifests/hdx-common.xml
 
 echo Core Manifest:
 cat .repo/manifest.xml
