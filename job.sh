@@ -28,7 +28,7 @@ export
 #HUDSON
 if [ ! -d hudson ]
 then
-  git clone git://github.com/androidarmv6/hudson.git -b master
+  git clone git://github.com/KFireHDX/hudson.git -b master
 fi
 cd hudson
 ## Get rid of possible local changes
