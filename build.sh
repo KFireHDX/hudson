@@ -219,7 +219,7 @@ then
   # make sure ccache is in PATH
   export PATH="$PATH:/opt/local/bin/:$PWD/prebuilts/misc/$(uname|awk '{print tolower($0)}')-x86/ccache"
   #export CCACHE_DIR=/ccj/$JOB_NAME/$REPO_BRANCH/$DEVICE
-  export CCACHE_DIR=/ccj/$DEVICE
+  export CCACHE_DIR=$WORKSPACE/ccj/$DEVICE
   mkdir -p $CCACHE_DIR
 fi
 
