@@ -231,7 +231,7 @@ fi
 mkdir -p .repo/local_manifests
 rm -f .repo/local_manifest.xml
 
-curl https://github.com/KFireHDX/android_device_amazon_hdx-common/raw/$REPO_BRANCH/hdx-common.mk > .repo/local_manifests/hdx-common.xml
+curl -O -L https://github.com/KFireHDX/android_device_amazon_hdx-common/raw/$REPO_BRANCH/hdx-common.mk > .repo/local_manifests/hdx-common.xml
 
 echo Core Manifest:
 cat .repo/manifest.xml
