@@ -231,9 +231,8 @@ fi
 mkdir -p .repo/local_manifests
 rm -f .repo/local_manifest.xml
 
-set -x
-curl https://raw.githubusercontent.com/KFireHDX/android_device_amazon_hdx-common/$REPO_BRANCH/hdx-common.xml > .repo/local_manifests/hdx-common.xml
-set +x
+echo "Download hdx localrepo"
+curl https://raw.githubusercontent.com/KFireHDX/android_device_amazon_hdx-common/$REPO_BRANCH/localrepo-hdx.xml > .repo/local_manifests/localrepo-hdx.xml
 
 echo Core Manifest:
 cat .repo/manifest.xml
