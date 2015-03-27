@@ -270,8 +270,8 @@ echo "apply hdx patches to cm core"
 device/amazon/hdx-common/overlay-patchs/reset.sh 
 device/amazon/hdx-common/overlay-patchs/apply.sh 
 
-echo "rm bootable/recovery/uncrypt"
-rm -rf bootable/recovery/uncrypt
+echo "rm system/core/uncrypt"
+rm -rf system/core/uncrypt
 
 $WORKSPACE/hudson/cm-setup.sh
 
