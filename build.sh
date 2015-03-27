@@ -158,8 +158,8 @@ then
   export BUILD_USER_ID=$(whoami)
 fi
 
-git config --global user.name $BUILD_USER_ID@androidarmv6
-git config --global user.email jenkins@androidarmv6.org
+git config --global user.name $BUILD_USER_ID@kfirehdx
+git config --global user.email jenkins@kfirehds.ddns.net
 
 JENKINS_BUILD_DIR=$REPO_BRANCH
 
