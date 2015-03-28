@@ -221,7 +221,6 @@ then
   #export CCACHE_DIR=/ccj/$JOB_NAME/$REPO_BRANCH/$DEVICE
   export CCACHE_DIR=$WORKSPACE/ccj/$REPO_BRANCH/$DEVICE
   mkdir -p $CCACHE_DIR
-  ccache -M 15G
 fi
 
 if [ -f ~/.jenkins_profile ]
@@ -356,7 +355,7 @@ if [ $USE_CCACHE -eq 1 ]
 then
   if [ ! "$(ccache -s|grep -E 'max cache size'|awk '{print $4}')" = "9.0" ]
   then
-    ccache -M 8G
+    ccache -M 15G
   fi
   echo "============================================"
   ccache -s
