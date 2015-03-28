@@ -221,6 +221,7 @@ then
   #export CCACHE_DIR=/ccj/$JOB_NAME/$REPO_BRANCH/$DEVICE
   export CCACHE_DIR=$WORKSPACE/ccj/$DEVICE
   mkdir -p $CCACHE_DIR
+  ccache -M 15G
 fi
 
 if [ -f ~/.jenkins_profile ]
