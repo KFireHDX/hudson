@@ -50,13 +50,13 @@ else:
 
 headers = {}
 headers['Content-Type'] = 'application/json'
-headers['User-Agent'] = 'androidarmv6 changelog builder'
+headers['User-Agent'] = 'KFireHDX changelog builder'
 headers['Accept'] = '*/*'
 headers['Content-Length'] = "%d" % (len(logrequest))
 
-conn = http.client.HTTPConnection('download.androidarmv6.org', 80)
+conn = http.client.HTTPConnection('kfirehdx.ddns.net', 80)
 conn.connect()
-request = conn.putrequest('POST', '/api')
+request = conn.putrequest('POST', '/CyanogenModOTA/api')
 
 for k in headers:
     conn.putheader(k, headers[k])
