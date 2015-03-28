@@ -444,6 +444,7 @@ fi
 
 if [ "$SIGN_BUILD" = "true" ]
 then
+set -x
   MODVERSION=$(cat $OUT/system/build.prop | grep ro.cm.version | cut -d = -f 2)
   SDKVERSION=$(cat $OUT/system/build.prop | grep ro.build.version.sdk | cut -d = -f 2)
   if [ ! -z "$MODVERSION" -a -f $OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files-$BUILD_NUMBER.zip ]
@@ -562,7 +563,7 @@ then
     then
       cp $OUT/recovery.img $DOWNLOAD_ANDROIDARMV6_ORG_DEVICE/recovery-$DEVICE.img
     fi
-
+set +x
   else
     echo "Unable to find target files to sign"
     exit 1
