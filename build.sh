@@ -400,13 +400,20 @@ fi
 
 echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
 
+wget http://chname.googlecode.com/files/chname-1.0.tar.gz
+
+tar zxvf chname-1.0.tar.gz
+cd chname-1.0
+make
+cd $WORKSPACE
+
 # envsetup.sh:mka = schedtool -B -n 1 -e ionice -n 1 make -j$(cat /proc/cpuinfo | grep "^processor" | wc -l) "$@"
 # Don't add -jXX. mka adds it automatically...
 if [ "$JOB_NAME" = "cm-recovery" ]
 then
-  time mka recoveryzip recoveryimage #checkapi
+  time chname-1.0/chname dev mka recoveryzip recoveryimage #checkapi
 else
-  time mka bacon recoveryzip recoveryimage #checkapi
+  time chname-1.0/chname dev mka bacon recoveryzip recoveryimage #checkapi
 fi
 check_result "Build failed."
 
