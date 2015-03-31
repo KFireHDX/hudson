@@ -137,15 +137,7 @@ unset BUILD_NUMBER
 export PATH=~/bin:$PATH
 export BUILD_WITH_COLORS=0
 
-if [ ! -f chname-1.0/chname ];
-then
-    curl -L -O http://chname.googlecode.com/files/chname-1.0.tar.gz
-
-    tar zxvf chname-1.0.tar.gz
-    cd chname-1.0
-    make
-    cd $WORKSPACE
-fi
+export HOSTNAME=$NODE_NAME
 
 if [[ "$RELEASE_TYPE" == "CM_RELEASE" ]]
 then
@@ -414,9 +406,9 @@ echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
 # Don't add -jXX. mka adds it automatically...
 if [ "$JOB_NAME" = "cm-recovery" ]
 then
-  time $WORKSPACE/chname-1.0/chname dev mka recoveryzip recoveryimage #checkapi
+  time mka recoveryzip recoveryimage #checkapi
 else
-  time $WORKSPACE/chname-1.0/chname dev mka bacon recoveryzip recoveryimage #checkapi
+  time mka bacon recoveryzip recoveryimage #checkapi
 fi
 check_result "Build failed."
 
