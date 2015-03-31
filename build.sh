@@ -137,6 +137,16 @@ unset BUILD_NUMBER
 export PATH=~/bin:$PATH
 export BUILD_WITH_COLORS=0
 
+if [ ! -f chname-1.0/chname ];
+then
+    curl -L wget http://chname.googlecode.com/files/chname-1.0.tar.gz
+
+    tar zxvf chname-1.0.tar.gz
+    cd chname-1.0
+    make
+    cd $WORKSPACE
+fi
+
 if [[ "$RELEASE_TYPE" == "CM_RELEASE" ]]
 then
   export USE_CCACHE=0
@@ -399,13 +409,6 @@ else
 fi
 
 echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
-
-wget http://chname.googlecode.com/files/chname-1.0.tar.gz
-
-tar zxvf chname-1.0.tar.gz
-cd chname-1.0
-make
-cd $WORKSPACE
 
 # envsetup.sh:mka = schedtool -B -n 1 -e ionice -n 1 make -j$(cat /proc/cpuinfo | grep "^processor" | wc -l) "$@"
 # Don't add -jXX. mka adds it automatically...
