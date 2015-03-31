@@ -139,6 +139,7 @@ export BUILD_WITH_COLORS=0
 
 export KBUILD_BUILD_USER="kfirehdx"
 if [ "$NODE_NAME" = "master" ];
+then
     export KBUILD_BUILD_HOST="build01" 
 else
     export KBUILD_BUILD_HOST="$NODE_NAME" 
