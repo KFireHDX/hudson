@@ -137,7 +137,12 @@ unset BUILD_NUMBER
 export PATH=~/bin:$PATH
 export BUILD_WITH_COLORS=0
 
-export HOSTNAME=$NODE_NAME
+export KBUILD_BUILD_USER="kfirehdx"
+if [ "$NODE_NAME" = "master" ];
+    export KBUILD_BUILD_HOST="build01" 
+else
+    export KBUILD_BUILD_HOST="$NODE_NAME" 
+fi
 
 if [[ "$RELEASE_TYPE" == "CM_RELEASE" ]]
 then
