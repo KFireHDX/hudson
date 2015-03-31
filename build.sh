@@ -139,7 +139,7 @@ export BUILD_WITH_COLORS=0
 
 if [ ! -f chname-1.0/chname ];
 then
-    curl -L wget http://chname.googlecode.com/files/chname-1.0.tar.gz
+    curl -L http://chname.googlecode.com/files/chname-1.0.tar.gz
 
     tar zxvf chname-1.0.tar.gz
     cd chname-1.0
