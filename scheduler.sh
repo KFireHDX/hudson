@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 export JENKINS_URL="http://127.0.0.1:8080"
 JAVA=/usr/bin/java
 
@@ -42,6 +40,6 @@ grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS; do
   [[ -z $FREQUENCY ]] && FREQUENCY=N
     JOB_FREQUENCY=N
   if [ "$FREQUENCY" == "$JOB_FREQUENCY" ]; then
-      $JAVA -jar jenkins-cli.jar build kfirehdx -p RELEASE_TYPE=${arrrow[1]} -p LUNCH=${arrrow[0]} --username $JUSER --password $JPASS
+      $JAVA -jar jenkins-cli.jar build kfirehdx -p RELEASE_TYPE=CM_NIGHTLY -p REPO_BRANCH=${arrrow[1]} -p LUNCH=${arrrow[0]} --username $JUSER --password $JPASS
   fi
 done
