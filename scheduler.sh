@@ -33,9 +33,10 @@ git pull -s resolve
 cd ..
 
 rm -f jenkins-cli.jar
-wget ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
+curl -O -L ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
 grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS}; do
+set -x
   arrrow=(${ROWS// / })
   FREQUENCY="${arrrow[2]}
   [[ -z $FREQUENCY ]] && FREQUENCY=N
