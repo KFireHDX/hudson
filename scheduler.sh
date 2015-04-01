@@ -36,9 +36,8 @@ rm -f jenkins-cli.jar
 curl -O -L ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
 grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS}; do
-set -x
   arrrow=(${ROWS// / })
-  FREQUENCY="${arrrow[2]}
+  FREQUENCY=${arrrow[2]}
   [[ -z $FREQUENCY ]] && FREQUENCY=N
     JOB_FREQUENCY=N
   if [ "$FREQUENCY" == "$JOB_FREQUENCY" ]; then
