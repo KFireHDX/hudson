@@ -47,4 +47,4 @@ grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS; do
   fi
 done
 
-$JAVA -jar jenkins-cli.jar logoff
+$JAVA -jar jenkins-cli.jar logut
