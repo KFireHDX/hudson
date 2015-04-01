@@ -35,7 +35,7 @@ cd ..
 rm -f jenkins-cli.jar
 curl -O -L ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
-grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS}; do
+grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS; do
   arrrow=(${ROWS// / })
   FREQUENCY=${arrrow[2]}
   [[ -z $FREQUENCY ]] && FREQUENCY=N
