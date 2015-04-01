@@ -35,8 +35,8 @@ cd ..
 rm -f jenkins-cli.jar
 curl -O -L ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
-$JAVA -jar jenkins-cli.jar login --username $JUSER --password $JPASS
-
+login --username $JUSER --password $JPASS
+$JAVA -jar jenkins-cli.jar list-jobs
 grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS; do
   arrrow=(${ROWS// / })
   FREQUENCY=${arrrow[2]}
@@ -47,4 +47,4 @@ grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS; do
   fi
 done
 
-$JAVA -jar jenkins-cli.jar logut
+$JAVA -jar jenkins-cli.jar logout
