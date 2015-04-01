@@ -35,8 +35,7 @@ cd ..
 rm -f jenkins-cli.jar
 wget ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
-kfirehdx-build-targets
-
+pwd
 ROWS=$(grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets)
 
 for row in ${ROWS[@]}; do
