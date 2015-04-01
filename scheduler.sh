@@ -36,13 +36,11 @@ rm -f jenkins-cli.jar
 wget ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
 grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS}; do
-  device=$(echo $row | awk -F" " '{print $1}'
-  RELEASE_TYPE=$(echo $row | awk -F" " '{print $2}'
   arrrow=(${ROWS// / })
   FREQUENCY="${arrrow[2]}
   [[ -z $FREQUENCY ]] && FREQUENCY=N
     JOB_FREQUENCY=N
   if [ "$FREQUENCY" == "$JOB_FREQUENCY" ]; then
-      $JAVA -jar jenkins-cli.jar build kfirehdx -p ${arrrow[1]} -p LUNCH=${arrrow[0]}
+      $JAVA -jar jenkins-cli.jar build kfirehdx -p RELEASE_TYPE=${arrrow[1]} -p LUNCH=${arrrow[0]}
   fi
 done
