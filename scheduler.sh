@@ -35,7 +35,7 @@ cd ..
 rm -f jenkins-cli.jar
 wget ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
-grep -v -e "^#" -e "^$" android/hudson/kfirehdx-build-targets | while read ROWS}; do
+grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets | while read ROWS}; do
   device=$(echo $row | awk -F" " '{print $1}'
   RELEASE_TYPE=$(echo $row | awk -F" " '{print $2}'
   arrrow=(${ROWS// / })
