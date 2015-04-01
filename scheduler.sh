@@ -35,7 +35,8 @@ cd ..
 rm -f jenkins-cli.jar
 wget ${JENKINS_URL}/jnlpJars/jenkins-cli.jar
 
-ROWS=$(grep -v -e "^#" -e "^$" android/hudson/kfirehdx-build-targets)
+pwd
+ROWS=$(grep -v -e "^#" -e "^$" hudson/kfirehdx-build-targets)
 
 for row in ${ROWS[@]}; do
   device=$(echo $row | awk -F" " '{print $1}'
