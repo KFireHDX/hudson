@@ -469,7 +469,12 @@ set -x
         export MINIGZIP="$minigzip"
     fi
 
-    OTASCRIPT=$(get_meta_val "ota_script_path")
+    if [ -s $OUT/ota_script_path ]
+    then
+        OTASCRIPT=$(cat $OUT/ota_script_path)
+    else
+        OTASCRIPT=$(get_meta_val "ota_script_path")
+    fi
 
     override_device=$(get_meta_val "override_device")
     if [ ! -z "$override_device" ]
