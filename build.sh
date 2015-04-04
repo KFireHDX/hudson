@@ -203,6 +203,7 @@ rm -fr vendor/zte/
 rm -rf .repo/manifests*
 rm -f .repo/local_manifests/dyn-*.xml
 rm -f .repo/local_manifest.xml
+rm -f .repo/local_manifests/localrepo-*.xml
 
 if [[ "$SYNC_PROTO" == "ssh" ]]
 then
